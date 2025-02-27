@@ -1,13 +1,72 @@
-body {
+*,
+*::before,
+*::after {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  color: #333;
+  overflow: hidden;
+  background-color: antiquewhite;
+  font-family: "VT323";
+}
+
+.app__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+@font-face {
+  font-family: "Monofett";
+  src: url(./fonts/Monofett-Regular.ttf);
+}
+
+@font-face {
+  font-family: "VT323";
+  src: url(./fonts/VT323-Regular.ttf);
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+p {
+  font-size: 2rem;
+}
+
+.choice__button {
+  font-size: 5rem;
+  background: none;
+  border: none;
+}
+
+.choice__container {
+  display: flex;
+  flex-direction: column;
+  height: 275px;
+}
+
+.choice__icon {
+  font-size: 5rem;
+}
+
+.score {
+  height: 106px;
+}
+
+.btn {
+  font-size: 3rem;
+  font-family: "VT323";
+  background: none;
+  padding: 0.25rem 0.5rem;
 }
