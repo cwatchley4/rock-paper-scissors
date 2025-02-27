@@ -14,7 +14,7 @@ body {
 }
 
 .app__container {
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,8 +65,10 @@ p {
 }
 
 .btn {
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: "VT323";
   background: none;
   padding: 0.25rem 0.5rem;
+  color: #333;
+  border: #333 solid 1px;
 }
