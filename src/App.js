@@ -2,16 +2,17 @@ import { useState } from "react";
 import Header from "./components/Header";
 import GameBoard from "./components/GameBoard";
 import ScoreDisplay from "./components/ScoreDisplay";
-import PlayAgainButton from "./components/PayAgainButton";
+import PlayAgainButton from "./components/PlayAgainButton";
 
 export default function App() {
-  const choices = ["👊", "🖐️", "✌️"];
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [winner, setWinner] = useState(null);
   const [score, setScore] = useState(0);
 
   function handleChoice(children) {
+    const choices = ["rock", "paper", "scissors"];
+
     setPlayerChoice(children);
     setTimeout(() => {
       const compChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -20,9 +21,9 @@ export default function App() {
         if (children === compChoice) {
           setWinner("tie");
         } else if (
-          (children === "👊" && compChoice === "✌️") ||
-          (children === "🖐️" && compChoice === "👊") ||
-          (children === "✌️" && compChoice === "🖐️")
+          (children === "rock" && compChoice === "scissors") ||
+          (children === "paper" && compChoice === "rock") ||
+          (children === "scissors" && compChoice === "paper")
         ) {
           setWinner("player");
           setScore((prev) => prev + 1);

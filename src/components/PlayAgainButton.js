@@ -1,6 +1,6 @@
 export default function PlayAgainButton({ onPlayAgain }) {
   return (
-    <button className="btn" onClick={onPlayAgain}>
+    <button className="start-btn" onClick={onPlayAgain}>
       Play Again
     </button>
   );

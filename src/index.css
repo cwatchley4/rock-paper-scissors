@@ -53,11 +53,12 @@ p {
 .choice__container {
   display: flex;
   flex-direction: column;
-  height: 275px;
+  height: 290px;
 }
 
 .choice__icon {
   font-size: 5rem;
+  padding: 1rem;
 }
 
 .score {
@@ -71,4 +72,28 @@ p {
   padding: 0.25rem 0.5rem;
   color: #333;
   border: #333 solid 1px;
+}
+
+.start-btn {
+  font-family: "VT323";
+  font-size: 3rem;
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+  font-weight: bold;
+  padding: 10px 0 10px 10px;
+  background-color: #b89265;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: #6a4c3a;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 0.2em #9c7354;
+  cursor: pointer;
+}
+.start-btn:active {
+  box-shadow: none;
+  position: relative;
+  top: 0.2em;
 }
