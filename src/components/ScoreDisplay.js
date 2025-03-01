@@ -1,5 +1,3 @@
-import confetti from "canvas-confetti";
-
 export default function ScoreDisplay({ score, winner }) {
   const winPhrases = [
     "You win 😔",

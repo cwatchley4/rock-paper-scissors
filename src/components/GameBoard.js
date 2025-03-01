@@ -1,6 +1,5 @@
 import ChoiceButton from "./ChoiceButton";
 import GameIcon from "./GameIcon";
-
 import RockIcon from "../images/rock.svg";
 import PaperIcon from "../images/paper.svg";
 import ScissorsIcon from "../images/scissors.svg";
