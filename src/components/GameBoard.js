@@ -1,4 +1,6 @@
 import ChoiceButton from "./ChoiceButton";
+import GameIcon from "./GameIcon";
+
 import RockIcon from "../images/rock.svg";
 import PaperIcon from "../images/paper.svg";
 import ScissorsIcon from "../images/scissors.svg";
@@ -9,13 +11,13 @@ export default function GameBoard({ onChoice, playerChoice, computerChoice }) {
       {!playerChoice ? (
         <div className="choice__container">
           <ChoiceButton onChoice={onChoice} value="rock">
-            <img src={RockIcon} alt="rock" width="80" />
+            <GameIcon src={RockIcon} alt="rock" />
           </ChoiceButton>
           <ChoiceButton onChoice={onChoice} value="paper">
-            <img src={PaperIcon} alt="paper" width="80" />
+            <GameIcon src={PaperIcon} alt="paper" />
           </ChoiceButton>
           <ChoiceButton onChoice={onChoice} value="scissors">
-            <img src={ScissorsIcon} alt="scissors" width="80" />
+            <GameIcon src={ScissorsIcon} alt="scissors" />
           </ChoiceButton>
         </div>
       ) : (
@@ -24,13 +26,13 @@ export default function GameBoard({ onChoice, playerChoice, computerChoice }) {
             <p>You picked {playerChoice}.</p>
             <div className="choice__icon">
               {playerChoice === "rock" && (
-                <img src={RockIcon} alt="rock" width="80" />
+                <GameIcon src={RockIcon} alt="rock" />
               )}
               {playerChoice === "paper" && (
-                <img src={PaperIcon} alt="paper" width="80" />
+                <GameIcon src={PaperIcon} alt="paper" />
               )}
               {playerChoice === "scissors" && (
-                <img src={ScissorsIcon} alt="scissors" width="80" />
+                <GameIcon src={ScissorsIcon} alt="scissors" />
               )}
             </div>
           </div>
@@ -39,13 +41,13 @@ export default function GameBoard({ onChoice, playerChoice, computerChoice }) {
               {computerChoice ? <p>I picked {computerChoice}.</p> : ""}
               <div className="choice__icon">
                 {computerChoice === "rock" && (
-                  <img src={RockIcon} alt="rock" width="80" />
+                  <GameIcon src={RockIcon} alt="rock" />
                 )}
                 {computerChoice === "paper" && (
-                  <img src={PaperIcon} alt="paper" width="80" />
+                  <GameIcon src={PaperIcon} alt="paper" />
                 )}
                 {computerChoice === "scissors" && (
-                  <img src={ScissorsIcon} alt="scissors" width="80" />
+                  <GameIcon src={ScissorsIcon} alt="scissors" />
                 )}
               </div>
             </div>

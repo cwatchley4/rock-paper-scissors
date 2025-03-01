@@ -14,6 +14,7 @@ export default function App() {
     const choices = ["rock", "paper", "scissors"];
 
     setPlayerChoice(children);
+
     setTimeout(() => {
       const compChoice = choices[Math.floor(Math.random() * choices.length)];
       setComputerChoice(compChoice);
