@@ -2,13 +2,17 @@ import { useState } from "react";
 import Header from "./components/Header";
 import GameBoard from "./components/GameBoard";
 import ScoreDisplay from "./components/ScoreDisplay";
-import PlayAgainButton from "./components/PlayAgainButton";
+import Button from "./components/Button";
 
 export default function App() {
   const [playerChoice, setPlayerChoice] = useState(null);
   const [computerChoice, setComputerChoice] = useState(null);
   const [winner, setWinner] = useState(null);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(() => {
+    const savedScore = localStorage.getItem("score");
+    return savedScore ? parseInt(savedScore, 10) : 0;
+  });
+  const [startGame, setStartGame] = useState(false);
 
   function handleChoice(children) {
     const choices = ["rock", "paper", "scissors"];
@@ -27,10 +31,18 @@ export default function App() {
           (children === "scissors" && compChoice === "paper")
         ) {
           setWinner("player");
-          setScore((prev) => prev + 1);
+          setScore((prev) => {
+            const newScore = prev + 1;
+            localStorage.setItem("score", newScore);
+            return newScore;
+          });
         } else {
           setWinner("computer");
-          setScore((prev) => prev - 1);
+          setScore((prev) => {
+            const newScore = prev - 1;
+            localStorage.setItem("score", newScore);
+            return newScore;
+          });
         }
       }, 1000);
     }, 1000);
@@ -42,16 +54,42 @@ export default function App() {
     setWinner(null);
   }
 
+  function handleNewGame() {
+    setScore(0);
+    setPlayerChoice(null);
+    setComputerChoice(null);
+    setWinner(null);
+    localStorage.setItem("score", 0);
+  }
+
   return (
-    <div className="app__container">
-      <Header />
-      <GameBoard
-        onChoice={handleChoice}
-        playerChoice={playerChoice}
-        computerChoice={computerChoice}
-      />
-      <ScoreDisplay score={score} winner={winner} />
-      <PlayAgainButton onPlayAgain={handlePlayAgain} />
+    <div
+      className={!startGame ? `app__container--start` : `app__container--game`}
+    >
+      {!startGame ? (
+        <>
+          <Header />
+          <Button onClick={() => setStartGame(true)}>Start Game</Button>
+          <p>
+            Created by <br />
+            <a href="https://www.curtisatchley.com">Curtis Atchley</a>
+          </p>
+        </>
+      ) : (
+        <>
+          <Header />
+          <GameBoard
+            onChoice={handleChoice}
+            playerChoice={playerChoice}
+            computerChoice={computerChoice}
+          />
+          <ScoreDisplay score={score} winner={winner} />
+          <div className="btn__container">
+            <Button onClick={handlePlayAgain}>Play Again</Button>
+            <Button onClick={handleNewGame}>New Game</Button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
